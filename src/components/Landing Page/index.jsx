@@ -3,8 +3,8 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import styles from "./styles.module.css";
 
-const Signin = () => {
-	const [data, setData] = useState({ phone: "", password: "" });
+const Landing = () => {
+	const [data, setData] = useState({ user: "" });
 	const [error, setError] = useState("");
 
 	const handleChange = ({ currentTarget: input }) => {
@@ -31,46 +31,31 @@ const Signin = () => {
 	};
 
 	return (
-		<div className={styles.signin_container}>
-			<div className={styles.signin_form_container}>
+		<div className={styles.main_container}>
+			<div className={styles.user_form_container}>
 				<div className={styles.left}>
 					<form className={styles.form_container} onSubmit={handleSubmit}>
-						<h1>Login to Your Account</h1>
+						<h2>FEYNMAN BOARD</h2>
 						<input
-							type="phone"
-							placeholder="Enter Phone No."
-							name="phone"
+							type="user"
+							placeholder="Enter User Name"
+							name="user"
 							onChange={handleChange}
-							value={data.phone}
+							value={data.user}
 							required
 							className={styles.input}
 						/>
-						<input
-							type="password"
-							placeholder="Password"
-							name="password"
-							onChange={handleChange}
-							value={data.password}
-							required
-							className={styles.input}
-						/>
+						
 						{error && <div className={styles.error_msg}>{error}</div>}
 						<button type="submit" className={styles.green_btn}>
 							Sign In
 						</button>
 					</form>
 				</div>
-				<div className={styles.right}>
-					<h1>New Here ?</h1>
-					<Link to="/signup">
-						<button type="button" className={styles.white_btn}>
-							Sign Up
-						</button>
-					</Link>
-				</div>
+				
 			</div>
 		</div>
 	);
 };
 
-export default Signin;
+export default Landing;

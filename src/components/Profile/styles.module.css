@@ -1,7 +1,7 @@
 .navbar {
 	width: 100%;
 	height: 70px;
-	background-color: #3A3E59;
+	background-color: #DBD5ED;
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
@@ -17,11 +17,24 @@
 	border: none;
 	outline: none;
 	padding: 12px 0;
-	background-color: white;
-	border-radius: 20px;
+	background-color: #4FA3A5;
+	border-radius: 8px;
 	width: 120px;
 	font-weight: bold;
 	font-size: 14px;
 	cursor: pointer;
+	margin-left: 15px;
 	margin-right: 20px;
+}
+
+.footer {
+	width: 100%;
+	height: 70px;
+	background-color: #DBD5ED;
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	color: white;
+	text-align: center;
 }

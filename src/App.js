@@ -1,17 +1,17 @@
 import { Route, Routes, Navigate } from "react-router-dom";
-import Main from "./components/main";
-import Signup from "./components/signup";
-import Signin from "./components/signin";
+import Dashboard from "./components/Profile";
+import Addtopic from "./components/Addtopic";
+import Landing from "./components/Landing Page";
 
 function App() {
 	const user = localStorage.getItem("token");
 
 	return (
 		<Routes>
-			{user && <Route path="/" exact element={<Main />} />}
-			<Route path="/signup" exact element={<Signup />} />
-			<Route path="/signin" exact element={<Signin />} />
-			<Route path="/" element={<Navigate replace to="/signin" />} />
+			{<Route path="/dashboard" exact element={<Dashboard/>} />}
+			<Route path="/addtopic" exact element={<Addtopic />} />
+			<Route path="/landing" exact element={<Landing />} />
+			<Route path="/"element={<Navigate replace to="/landing" />} />
 		</Routes>
 	);
 }
