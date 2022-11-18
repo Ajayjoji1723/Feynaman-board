@@ -5,9 +5,7 @@ import axios from 'axios';
 
 const Addtopic = () => {
     const [data, setData] = useState({
-        topicname: "",
-        desc: ""
-
+        "id":'6374b47952bb922b1de884ff'
     });
     const [error, setError] = useState("")
     const navigate = useNavigate();
@@ -17,14 +15,14 @@ const Addtopic = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const url = "http://localhost:1234/add-topic";
+            const url = "http://localhost:1000/add-topic";
+            console.log(data)
             const { data: res } = await axios.post(url, data);
         }
         catch {
             if (error.response && error.response.status >= 400 && error.response.status <= 500) {
                 setError(error.response.data.message)
             }
-
         }
     }
     return (
@@ -43,23 +41,24 @@ const Addtopic = () => {
                         <h2> Create A Topic</h2>
                         < input type="text"
                             placeholder="Enter Title of the Topic"
-                            name='name'
+                            name='title'
                             onChange={handleChange}
                             value={data.name}
                             required
                             className={styles.input}
                         />
-                        < input type="textarea"
+                        {/* < input type="textarea"
                             placeholder="Write about the topic"
                             name='phone'
                             onChange={handleChange}
                             value={data.phone}
                             required
                             className={styles.input1}
-                        />
+                        /> */}
+                        <textarea name='desc' onChange={handleChange} className={styles.input1}></textarea>
 
                         {error && <div className={styles.error_msg}>{error}</div>}
-                        <button type="submit" className={styles.green_btn}>Submit</button>
+                        <button type="submit" onClick={handleSubmit} className={styles.green_btn}>Submit</button>
 
 
                     </form>
